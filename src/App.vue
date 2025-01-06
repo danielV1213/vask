@@ -8,6 +8,7 @@
 <script>
 import Header from "./components/Header.vue";
 import Tasks from "./components/Tasks.vue";
+import axios from 'axios';
 
 export default {
   name: "App",
@@ -22,7 +23,7 @@ export default {
   },
 
   // The created() LifeCycle Hook is used to make httpd requests or load data when the component loads too.
-  created() {
+  async created() {
     this.tasks = [
       {
         id: 1,

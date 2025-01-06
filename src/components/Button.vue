@@ -8,8 +8,14 @@
 export default {
   name: "Button",
   props: {
-    text: String,
-    color: String,
+    text: {
+      type: String,
+      default: "Button"
+    },
+    color: {
+      type: String,
+      default: "steelblue"
+    }
   },
   methods: {
     onClick() {
