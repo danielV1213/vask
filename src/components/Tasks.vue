@@ -1,5 +1,5 @@
 <template>
-  <div :key="task.id" v-for="task in tasks">
+  <div :key="task._id" v-for="task in tasks">
     <Task :task="task" />
   </div>
 </template>
@@ -14,6 +14,6 @@ export default {
   },
   components: {
     Task,
-}
+  }
 };
 </script>

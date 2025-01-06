@@ -24,26 +24,8 @@ export default {
 
   // The created() LifeCycle Hook is used to make httpd requests or load data when the component loads too.
   async created() {
-    this.tasks = [
-      {
-        id: 1,
-        text: "Doctors Appointment",
-        day: "March 1st at 2:30pm",
-        reminder: true,
-      },
-      {
-        id: 2,
-        text: "Job Meeting",
-        day: "March 2nd at 9:00am",
-        reminder: true,
-      },
-      {
-        id: 3,
-        text: "Gym Training",
-        day: "March 2nd at 6:30pm",
-        reminder: true,
-      },
-    ];
+    const response = await axios.get('http://localhost:8080/tasks');
+    this.tasks = response.data;
   },
 };
 </script>
