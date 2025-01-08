@@ -1,4 +1,12 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from "vue";
+import { tasksStore } from "./store";
+import App from "./App.vue";
 
-createApp(App).mount('#app')
+// Create the app instance
+const app = createApp(App);
+
+// Use the store with the app instance
+app.use(tasksStore);
+
+// Mount the app
+app.mount("#app");
