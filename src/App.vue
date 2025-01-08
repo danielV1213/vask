@@ -8,25 +8,33 @@
 <script>
 import Header from "./components/Header.vue";
 import Tasks from "./components/Tasks.vue";
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   name: "App",
   components: {
     Header,
-    Tasks
+    Tasks,
   },
   data() {
     return {
       tasks: [],
     };
   },
-
-  // The created() LifeCycle Hook is used to make httpd requests or load data when the component loads too.
   async created() {
-    const response = await axios.get('http://localhost:8080/tasks');
-    this.tasks = response.data;
+    this.getTasks();
   },
+  methods: {
+    async getTasks() {
+      try {
+        const API_URL = process.env.VUE_APP_API_URL;
+        const response = await axios.get(`${API_URL}/tasks`);
+        this.tasks = response.data;
+      } catch (error) {
+        console.error("Error fetching tasks:", error);
+      }
+    }
+  }
 };
 </script>
 
